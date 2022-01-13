@@ -1,6 +1,8 @@
 package net.subsquid.indexerapi.dto;
 
-public class SubsquidIndexerStatusDto {
+import org.springframework.core.style.ToStringCreator;
+
+public class SubsquidIndexerStatus {
 
     private int chainHeight;
     private int head;
@@ -55,5 +57,17 @@ public class SubsquidIndexerStatusDto {
 
     public void setMaxComplete(int maxComplete) {
         this.maxComplete = maxComplete;
+    }
+
+    @Override
+    public String toString() {
+        return new ToStringCreator(this)
+            .append("chainHeight", this.chainHeight)
+            .append("head", this.head)
+            .append("hydraVersion", this.hydraVersion)
+            .append("inSync", this.inSync)
+            .append("lastComplete", this.lastComplete)
+            .append("maxComplete", this.maxComplete)
+            .toString();
     }
 }
