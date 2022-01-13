@@ -1,0 +1,10 @@
+query SubsquidIndexerStatus {
+  indexerStatus {
+    chainHeight
+    head
+    hydraVersion
+    inSync
+    lastComplete
+    maxComplete
+  }
+}
