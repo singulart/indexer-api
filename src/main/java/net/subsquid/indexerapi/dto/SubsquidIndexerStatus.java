@@ -10,6 +10,7 @@ public class SubsquidIndexerStatus {
     private boolean inSync;
     private int lastComplete;
     private int maxComplete;
+    private String url;
 
     public int getChainHeight() {
         return chainHeight;
@@ -59,9 +60,18 @@ public class SubsquidIndexerStatus {
         this.maxComplete = maxComplete;
     }
 
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
     @Override
     public String toString() {
         return new ToStringCreator(this)
+            .append("url", this.url)
             .append("chainHeight", this.chainHeight)
             .append("head", this.head)
             .append("hydraVersion", this.hydraVersion)
