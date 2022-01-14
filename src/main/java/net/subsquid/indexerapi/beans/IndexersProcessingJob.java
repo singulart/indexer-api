@@ -47,10 +47,8 @@ public class IndexersProcessingJob implements Job {
             ArrayList<SubsquidIndexerStatus> statuses = new ArrayList<>();
             githubFileContent.lines().forEach((indexer) -> {
                 try {
-                    var query = Files.readString(
-                        Paths.get(IndexersProcessingJob.class.getClassLoader()
-                        .getResource("getIndexerStatus.graphql").toURI())
-                    );
+                    var query = new String(IndexersProcessingJob.class.getClassLoader()
+                        .getResourceAsStream("getIndexerStatus.graphql").readAllBytes());
                     var requestBody = new GraphqlRequestBody();
                     requestBody.setQuery(query);
                     requestBody.setVariables(null);
@@ -62,7 +60,7 @@ public class IndexersProcessingJob implements Job {
                     } else {
                         log.warning(format("Did not receive status from %s", indexer));
                     }
-                } catch (IOException | URISyntaxException e) {
+                } catch (IOException e) {
                     e.printStackTrace();
                 } catch (RestClientException e) {
                     log.log(Level.WARNING, "Client error getting indexer status", e);

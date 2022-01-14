@@ -9,7 +9,7 @@ For simplicity, all data retrieved by Quartz job is stored in memory.
 # Configuration  
 
 The following environment variables affect the application:
-1. `INDEXERS_LIST` - Direct URL to file on Github with the list of deployed indexers URLs
+1. `INDEXERS_LIST` - Direct URL to file on GitHub with the list of deployed indexers URLs
 2. `REPEAT_INTERVAL_SECS` - time interval (in seconds) for Quartz to re-query all the statuses
 3. `CONNECT_TIMEOUT_MILLIS` - Spring Rest Template connect timeout (in ms). 
 4. `READ_TIMEOUT_MILLIS` - Spring Rest Template read timeout (in ms). See [SO comment](https://stackoverflow.com/a/3069450) for context.
