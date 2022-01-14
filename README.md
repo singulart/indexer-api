@@ -2,7 +2,7 @@
 
 A Spring Boot application which uses Quartz scheduler to periodically fetch the statuses of the running Subsquid indexers. The list of indexers is taken from Github. 
 
-A REST API `GET /statuses` endpoint is provided to consume this information by bots and front-end dashboards.
+A REST API `GET /statuses` endpoint is provided to consume this information by [bots](https://github.com/singulart/subsquid-telegram-bot) and front-end dashboards.
 
 For simplicity, all data retrieved by Quartz job is stored in memory. 
 
