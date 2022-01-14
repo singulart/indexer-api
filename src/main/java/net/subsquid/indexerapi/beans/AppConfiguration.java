@@ -1,5 +1,6 @@
 package net.subsquid.indexerapi.beans;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import java.time.Duration;
 import java.time.temporal.ChronoUnit;
 import org.quartz.JobDetail;
@@ -14,6 +15,11 @@ import org.springframework.web.client.RestTemplate;
 
 @Configuration
 public class AppConfiguration {
+
+    @Bean
+    public ObjectMapper mapper() {
+        return new ObjectMapper();
+    }
 
     @Bean
     public JobDetailFactoryBean jobDetail() {
