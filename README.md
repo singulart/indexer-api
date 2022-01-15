@@ -23,6 +23,15 @@ The following environment variables affect the application:
 # Running in Prod
 `java -jar indexer-api-0.0.1-SNAPSHOT.jar`
 
+# Running as Docker container
+To publish the image to docker registry 
+
+`mvn compile jib:build`
+
+To run the image
+
+`docker run -d -p 8080:8080 --name indexer-api isonar/subsquid-indexers-api`
+
 # Accessing the endpoint
 
 `curl http://localhost:8080/statuses`
